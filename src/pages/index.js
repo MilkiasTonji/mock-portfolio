@@ -30,7 +30,7 @@ export default function Home() {
                   download={true}
                   >Resume <LinkArrow className={"w-6 ml-1"} /> </Link>
                   <Link href="mailto:mikytonji1362@gmail.com" target='_blank'
-                  className='flex items-center text-dark ml-3 p-2.5 px-6 rounded-lg text-lg font-semibold hover:bg-dark hover:text-light border border-solid border-transparent border-dark'
+                  className='flex items-center text-dark ml-3 p-2.5 px-6 rounded-lg text-lg font-semibold hover:bg-dark hover:text-light border border-solid border-dark'
                   >Contact Me</Link>
                 </div>
             </div>
