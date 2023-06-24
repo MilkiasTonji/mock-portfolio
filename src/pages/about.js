@@ -7,7 +7,7 @@ import React, { useEffect, useRef } from 'react'
 import profilePic from '../../public/images/profile/developer-pic-2.jpg'
 import { useInView, useMotionValue, useSpring } from 'framer-motion'
 
-
+//animate numbers up to the value passed from component
 const AnimatedNumbers = ({value}) => {
    
     const ref = useRef(null);
