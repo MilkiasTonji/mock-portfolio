@@ -58,11 +58,11 @@ const myExperiences = [
 
 
 const Details = ({position, company, companyLink, time, address, work}) => {
-    return <li>
+    return <li className='my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-center justify-center'>
         <div>
-            <h3>{position} &nbsp; <a href={companyLink}>@{company}</a></h3>
-            <span>{time} | {address}</span>
-            <p>{work}</p>
+            <h3 className='capitalize font-bold text-2xl'>{position} &nbsp; <a href={companyLink}>@{company}</a></h3>
+            <span className='capitalize font-medium text-dark/75'>{time} | {address}</span>
+            <p className='font-medium w-full'>{work}</p>
         </div>
     </li>
 }
@@ -74,7 +74,19 @@ const Experience = () => {
         <h2 className='font-bold text-8xl mb-32 w-full text-center'>Experience</h2>
         <div className='w-[75%] mx-auto relative'>
             <ul>
-                <Details />
+                {
+                    myExperiences.map((exp, index)=> (
+                        <Details 
+                            position={exp.position} 
+                            company={exp.company} 
+                            companyLink={exp.companyLink}
+                            time={exp.time}
+                            address={exp.address}
+                            work={exp.work}
+                            key={index}
+                        />
+                    ))
+                }
             </ul>
         </div>
     </div>
