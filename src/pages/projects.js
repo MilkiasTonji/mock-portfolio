@@ -58,9 +58,12 @@ const myProjects = [
 
 
 const FeaturedProject = ({ type, title, summary, img, link, github, techStacks }) => {
-    return (<article className={`w-full flex items-center border border-solid border-dark bg-light ${type === "Featured Project" ?
-        'justify-between rounded-3xl shadow-2xl p-10' : 'flex flex-col justify-center rounded-2xl p-6 relative'
+    return (<article className={`w-full flex items-center border border-solid border-dark bg-light relative rounded-br-2xl ${type === "Featured Project" ?
+        'justify-between rounded-3xl shadow-2xl p-10' : 'flex flex-col justify-center rounded-2xl p-6'
         }`}>
+        
+        <div className={`absolute top-0 -right-3  bg-dark rounded-br-3xl -z-10 w-[101%] h-[103%]  ${type==="Featured Project" ? 'rounded-[2.5rem]' : 'rounded-[2rem]'}`} />
+
         <Link href={link} target='_blank' 
         className={`${type === "Featured Project" ? 'w-1/2 cursor-pointer overflow-hidden rounded-lg'
         : 'w-full'}`}>
