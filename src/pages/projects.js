@@ -19,7 +19,7 @@ const myProjects = [
         img: projectImage1,
         link: "https://www.featured-comps.com/featured",
         github: "https://www.github.com/MilkiasTonji/project-name",
-        skills: ["",""]
+        techStacks: ["HTML", "CSS", "TAILWIND CSS", "REACT.JS", "NODE.JS", "EXPRESS.JS", "TYPESCRIPT"]
     },
     {
         type: "Normal Project",
@@ -29,7 +29,8 @@ const myProjects = [
         local currency.",
         img: projectImage1,
         link: "https://www.featured-comps.com/featured",
-        github: "https://www.github.com/MilkiasTonji/project-name"
+        github: "https://www.github.com/MilkiasTonji/project-name",
+        techStacks: ["HTML", "CSS", "TAILWIND CSS", "REACT.JS", "NODE.JS", "EXPRESS.JS", "TYPESCRIPT"]
     },
     {
         type: "Normal Project",
@@ -39,7 +40,8 @@ const myProjects = [
         local currency.",
         img: projectImage1,
         link: "https://www.featured-comps.com/featured",
-        github: "https://www.github.com/MilkiasTonji/project-name"
+        github: "https://www.github.com/MilkiasTonji/project-name",
+        techStacks: ["HTML", "CSS", "TAILWIND CSS", "REACT.JS", "NODE.JS", "EXPRESS.JS", "TYPESCRIPT"]
     },
     {
         type: "Normal Project",
@@ -49,25 +51,28 @@ const myProjects = [
         local currency.",
         img: projectImage1,
         link: "https://www.featured-comps.com/featured",
-        github: "https://www.github.com/MilkiasTonji/project-name"
+        github: "https://www.github.com/MilkiasTonji/project-name",
+        techStacks: ["HTML", "CSS", "TAILWIND CSS", "REACT.JS", "NODE.JS", "EXPRESS.JS", "TYPESCRIPT"]
     },
 ]
 
 
-const FeaturedProject = ({type, title, summary, img, link, github})=> {
-    return (<article>
-        <Link href={link} target='_blank'>
+const FeaturedProject = ({ type, title, summary, img, link, github, techStacks }) => {
+    return (<article className='w-full flex items-center justify-between rounded-3xl
+    border border-solid border-dark bg-light shadow-2xl p-10'>
+        <Link href={link} target='_blank' className='w-1/2 cursor-pointer overflow-hidden rounded-lg'>
             <Image src={img} alt={title} className='w-full h-auto' /> </Link>
-            <div>
-                <span>{type}</span>
-                <Link href={link} target='_blank'><h2>{title}</h2></Link>
-                <p>{summary}</p>
-                <div>
-                <Link href={github} target='_blank'><GithubIcon /></Link>
-                <Link href={link} target='_blank'>Visit Project</Link>
-                </div>
+        <div className='w-1/2 flex flex-col items-start justify-between pl-6'>
+            <span className='text-primary font-medium text-xl'>{type}</span>
+            <Link href={link} target='_blank' className='hover:underline underline-offset-2'><h2 className='my-2 w-full text-left text-4xl font-bold'>{title}</h2></Link>
+            <p className='my-2 font-medium text-dark'>{summary}</p>
+            <div className='mt-2 flex items-center'>
+                <Link href={github} target='_blank' className='w-10'><GithubIcon /></Link>
+                <Link href={link} target='_blank' className='ml-4 rounded-lg bg-dark text-light p-2 px-6 text-lg font-semibold
+                '>Visit Project</Link>
             </div>
-        
+        </div>
+
     </article>)
 }
 
@@ -80,34 +85,25 @@ const projects = () => {
             </Head>
             <main className='w-full mb-16 flex flex-col items-center justify-center'>
                 <Layout className='pt-16'>
-                   <AnimatedText text={"Imagination Trumps Knowledge!"} className='text-6xl' /> 
-                   <div className='grid grid-cols-12 gap-24'>
-                            {
-                                myProjects.map((project, index)=> (
-                                    <div className={`${project.type === "Featured Project" ? 'col-span-12' : 'col-span-6'}`}>
-                                         <FeaturedProject 
-                                            type={project.type}
-                                            title={project.title}
-                                            summary={project.summary}
-                                            img={project.img}
-                                            github={project.github}
-                                            link={project.link}
-                                            key={index}
-                                         />
-                                    </div>
-                                ))
-                            }
-                        <div className='col-span-12'>
-                          
-                        </div>
-                        <div className='col-span-6'>Projects-1</div>
-                        <div className='col-span-6'>Projects-2</div>
-                           {/* second part of the project */}
-                        <div className='col-span-12'>Featured Projects</div>
-                        <div className='col-span-6'>Projects-3</div>
-                        <div className='col-span-6'>Projects-4</div>
-
-                   </div>
+                    <AnimatedText text={"Imagination Trumps Knowledge!"} className='text-6xl' />
+                    <div className='grid grid-cols-12 gap-24'>
+                        {
+                            myProjects.map((project, index) => (
+                                <div className={`${project.type === "Featured Project" ? 'col-span-12' : 'col-span-6'}`}>
+                                    <FeaturedProject
+                                        type={project.type}
+                                        title={project.title}
+                                        summary={project.summary}
+                                        img={project.img}
+                                        github={project.github}
+                                        link={project.link}
+                                        techStacks={project.techStacks}
+                                        key={index}
+                                    />
+                                </div>
+                            ))
+                        }
+                    </div>
                 </Layout>
             </main>
         </>
