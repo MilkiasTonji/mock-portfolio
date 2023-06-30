@@ -44,7 +44,7 @@ const myProjects = [
         techStacks: ["HTML", "CSS", "TAILWIND CSS", "REACT.JS", "NODE.JS", "EXPRESS.JS", "TYPESCRIPT"]
     },
     {
-        type: "Normal Project",
+        type: "Featured Project",
         title: "Crypto Screener Application",
         summary: "A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. \
         It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your \
@@ -58,18 +58,37 @@ const myProjects = [
 
 
 const FeaturedProject = ({ type, title, summary, img, link, github, techStacks }) => {
-    return (<article className='w-full flex items-center justify-between rounded-3xl
-    border border-solid border-dark bg-light shadow-2xl p-10'>
-        <Link href={link} target='_blank' className='w-1/2 cursor-pointer overflow-hidden rounded-lg'>
+    return (<article className={`w-full flex items-center border border-solid border-dark bg-light ${type === "Featured Project" ?
+        'justify-between rounded-3xl shadow-2xl p-10' : 'flex flex-col justify-center rounded-2xl p-6 relative'
+        }`}>
+        <Link href={link} target='_blank' 
+        className={`${type === "Featured Project" ? 'w-1/2 cursor-pointer overflow-hidden rounded-lg'
+        : 'w-full'}`}>
             <Image src={img} alt={title} className='w-full h-auto' /> </Link>
-        <div className='w-1/2 flex flex-col items-start justify-between pl-6'>
+        <div className={`${type== 'Featured Project' ? 'w-1/2 flex flex-col items-start justify-between pl-6' 
+        : 'w-full mt-4'}`}>
             <span className='text-primary font-medium text-xl'>{type}</span>
-            <Link href={link} target='_blank' className='hover:underline underline-offset-2'><h2 className='my-2 w-full text-left text-4xl font-bold'>{title}</h2></Link>
+            <Link href={link} target='_blank' className='hover:underline underline-offset-2'>
+                <h2 className={`my-2 w-full text-left font-bold ${type==="Featured Project" ? 'text-4xl' : 'text-2xl'}`}>{title}</h2>
+            </Link>
+            
             <p className='my-2 font-medium text-dark'>{summary}</p>
-            <div className='mt-2 flex items-center'>
-                <Link href={github} target='_blank' className='w-10'><GithubIcon /></Link>
-                <Link href={link} target='_blank' className='ml-4 rounded-lg bg-dark text-light p-2 px-6 text-lg font-semibold
-                '>Visit Project</Link>
+            
+            <div className='flex flex-col'>
+                <div className='flex flex-wrap items-center gap-4 '>
+                    <h3 className='mt-2 w-full text-left text-2xl font-bold'>Tech Stacks</h3>
+                    {
+                        techStacks.map((tech, index) => (
+                            <div key={`${index}-${tech}`} className='flex gap-4'>
+                                <span className='p-2 px-4 border-primary border-solid border-[1px] rounded-lg'>{tech}</span>
+                            </div>
+                        ))
+                    }
+                </div>
+                <div className='mt-2 flex items-start justify-end'>
+                    <Link href={github} target='_blank' className='w-10'><GithubIcon /></Link>
+                    <Link href={link} target='_blank' className='ml-4 rounded-lg bg-dark text-light p-2 px-6 text-lg font-semibold'>Visit Project</Link>
+                </div>
             </div>
         </div>
 
@@ -85,7 +104,7 @@ const projects = () => {
             </Head>
             <main className='w-full mb-16 flex flex-col items-center justify-center'>
                 <Layout className='pt-16'>
-                    <AnimatedText text={"Imagination Trumps Knowledge!"} className='text-6xl' />
+                    <AnimatedText text={"Imagination Trumps Knowledge!"} className='text-6xl mb-16' />
                     <div className='grid grid-cols-12 gap-24'>
                         {
                             myProjects.map((project, index) => (
