@@ -40,7 +40,7 @@ const AnimatedText = ({ text, className = "" }) => {
                 {
                     text.split(" ").map(
                         (word, index) =>
-                            <motion.span key={word + '-' + index} className='inline-block line-clamp-2'
+                            <motion.span key={word + '-' + index} className='inline-block'
                                 variants={singleWord}
                             >
                                 {word}&nbsp;
