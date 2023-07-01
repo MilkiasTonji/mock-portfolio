@@ -7,6 +7,7 @@ import Link from 'next/link'
 import React from 'react'
 
 import projectImage1 from '../../public/images/projects/crypto-screener-cover-image.jpg';
+import { motion } from 'framer-motion'
 
 
 const myProjects = [
@@ -57,6 +58,11 @@ const myProjects = [
 ]
 
 
+
+
+// instead of image now use FramerImage component
+const FramerImage = motion(Image);
+
 const FeaturedProject = ({ type, title, summary, img, link, github, techStacks }) => {
     return (<article className={`w-full flex items-center border border-solid border-dark bg-light relative rounded-br-2xl ${type === "Featured Project" ?
         'justify-between rounded-3xl shadow-2xl p-10' : 'flex flex-col justify-center rounded-2xl p-6'
@@ -65,9 +71,13 @@ const FeaturedProject = ({ type, title, summary, img, link, github, techStacks }
         <div className={`absolute top-0 -right-3  bg-dark rounded-br-3xl -z-10 w-[101%] h-[103%]  ${type==="Featured Project" ? 'rounded-[2.5rem]' : 'rounded-[2rem]'}`} />
 
         <Link href={link} target='_blank' 
-        className={`${type === "Featured Project" ? 'w-1/2 cursor-pointer overflow-hidden rounded-lg'
-        : 'w-full'}`}>
-            <Image src={img} alt={title} className='w-full h-auto' /> </Link>
+            className={`${type === "Featured Project" ? 'w-1/2 cursor-pointer overflow-hidden rounded-lg'
+            : 'w-full'}`}>
+            <FramerImage src={img} alt={title} className='w-full h-auto' 
+                whileHover={{scale: 1.05}}
+                transition={{duration: 0.2}}
+            /> 
+        </Link>
         <div className={`${type== 'Featured Project' ? 'w-1/2 flex flex-col items-start justify-between pl-6' 
         : 'w-full mt-4'}`}>
             <span className='text-primary font-medium text-xl'>{type}</span>
