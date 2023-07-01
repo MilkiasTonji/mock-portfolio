@@ -8,6 +8,8 @@ import React, { useRef } from 'react'
 import article1 from '../../public/images/articles/pagination component in reactjs.jpg'
 import article2 from '../../public/images/articles/create loading screen in react js.jpg'
 import article3 from '../../public/images/articles/create modal component in react using react portals.png'
+import article4 from '../../public/images/articles/form validation in reactjs using custom react hook.png'
+import article5 from '../../public/images/articles/smooth scrolling in reactjs.png'
 
 
 import { motion, useMotionValue } from 'framer-motion'
@@ -64,20 +66,28 @@ const MovingImg = ({ title, img, link }) => {
                 x: x,
                 y: y
              }}
+             initial={{opacity: 0}}
+             whileInView={{opacity:1, transition: {duration: 0.2}}}
            ref={imgRef} src={img} alt={title} className='z-10 w-96 h-auto hidden absolute rounded-lg' />
         </Link>
     )
 }
 
 const Article = ({ img, title, date, link }) => {
-    return <li className='relative w-full p-4 py-6 my-4 rounded-xl flex items-center justify-between bg-light text-dark first:mt-0 border border-solid border-dark border-r-4 border-b-4'>
+    return (
+    <motion.li 
+    initial={{y: 200}}
+    whileInView={{y:0, transition: {duration: 0.5, ease: "easeInOut"}}}
+    viewport={{once: true}}
+    className='relative w-full p-4 py-6 my-4 rounded-xl flex items-center justify-between bg-light text-dark first:mt-0 border border-solid border-dark border-r-4 border-b-4'>
         <MovingImg
             title={title}
             img={img}
             link={link}
         />
         <span className='text-primary font-semibold pl-4'>{date}</span>
-    </li>
+    </motion.li>
+    )
 }
 
 
@@ -121,13 +131,13 @@ const articles = () => {
                         />
                         <Article
                             title={"Silky Smooth Scrolling In Reactjs: A Step-By-Step Guide For React Developers"}
-                            img={article3}
+                            img={article4}
                             date={"March 22, 2023"}
                             link={"/"}
                         />
                         <Article
                             title={"Creating An Efficient Modal Component In React Using Hooks And Portals"}
-                            img={article3}
+                            img={article5}
                             date={"March 22, 2023"}
                             link={"/"}
                         />
