@@ -10,7 +10,7 @@ import article1 from '../../public/images/articles/pagination component in react
 
 const FeaturedArticle = ({img, title,time, summary,link }) => {
     return (
-        <li>
+        <li className='col-span-12 w-full p-4 bg-light border border-solid border-dark rounded-2xl'>
             <Link href={link} target='_blank'
                 className={`'w-full cursor-pointer overflow-hidden rounded-lg'`}>
                 <Image src={img} alt={title} className='w-full h-auto' /> 
