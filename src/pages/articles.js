@@ -7,6 +7,9 @@ import React from 'react'
 
 import article1 from '../../public/images/articles/pagination component in reactjs.jpg'
 import article2 from '../../public/images/articles/create loading screen in react js.jpg'
+import article3 from '../../public/images/articles/create modal component in react using react portals.png'
+
+
 import { motion } from 'framer-motion'
 
 // instead of image now use FramerImage component
@@ -24,12 +27,19 @@ const FeaturedArticle = ({ img, title, time, summary, link }) => {
                 />
             </Link>
             <Link href={link} target='_blank'>
-                <h2 className='capitalize text-2xl font-bold my-2 hover:underline'>{title}</h2>
+                <h2 className='capitalize text-2xl font-bold my-2 hover:underline mt-4'>{title}</h2>
             </Link>
             <p className='text-sm mb-2'>{summary}</p>
             <span className='text-primary font-semibold'>{time}</span>
         </li>
     )
+}
+
+const Article = ({img, title, date, link}) => {
+    return <li>
+        <Link href={link} target='_blank'>{title}</Link>
+        <span>{date}</span>
+    </li>
 }
 
 const articles = () => {
@@ -53,14 +63,53 @@ const articles = () => {
                             img={article1}
                         />
                         <FeaturedArticle
-                            title={"Build A Custom Pagination Component In Reactjs From Scratch"}
-                            summary={"Learn how to build a custom pagination component in ReactJS from scratch. \
-                            Follow this step-by-step guide to integrate Pagination component in your ReactJS project."}
-                            time={"9 min read"}
+                            title={"Creating Stunning Loading Screens In React: Build 3 Types Of Loading Screens"}
+                            summary={`Learn how to create stunning loading screens in React with 3 different methods. \ 
+                            Discover how to use React-Loading, React-Lottie & build a custom loading screen. \
+                            Improve the user experience.`}
+                            time={"10 min read"}
                             link={"/"}
                             img={article2}
                         />
-
+                    </ul>
+                    <h2 className='font-bold text-4xl w-full text-center my-16 mt-32'>All Articles</h2>
+                    <ul>
+                        <Article
+                            title={"Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"}
+                            img={article3}
+                            date={"March 22, 2023"}
+                            link={"/"}   
+                        />
+                         <Article
+                            title={"Silky Smooth Scrolling In Reactjs: A Step-By-Step Guide For React Developers"}
+                            img={article3}
+                            date={"March 22, 2023"}
+                            link={"/"}   
+                        />
+                         <Article
+                            title={"Creating An Efficient Modal Component In React Using Hooks And Portals"}
+                            img={article3}
+                            date={"March 22, 2023"}
+                            link={"/"}   
+                        />
+                         <Article
+                            title={"Build A Fabulous Todo List App With React, Redux And Framer-Motion"}
+                            img={article3}
+                            date={"March 22, 2023"}
+                            link={"/"}   
+                        />
+                        <Article
+                            title={"Redux Simplified: A Beginner's Guide For Web Developers"}
+                            img={article3}
+                            date={"March 22, 2023"}
+                            link={"/"}   
+                        />
+                        <Article
+                            title={"What Is Higher Order Component (Hoc) In React?"}
+                            img={article3}
+                            date={"March 22, 2023"}
+                            link={"/"}   
+                        />
                     </ul>
                 </Layout>
             </main>
