@@ -12,7 +12,7 @@ const CustomLink = ({ href, title, className = "" }) => {
         <Link href={href} className={`${className} relative group ${router.asPath === href ? 'font-bold' : ''}`}>
             {title}
             <span className={`
-                h-[3px] inline-block bg-blue-500 absolute left-0 
+                h-[3px] inline-block bg-blue-500 absolute left-0 dark:bg-light
                 -bottom-0.5 rounded-md group-hover:w-full transition-[width] ease-in duration-300
                 ${router.asPath === href ? 'w-full font-bold' : 'w-0'}
             `}>
@@ -27,7 +27,7 @@ const Navbar = () => {
     const [mode, setMode] = useThemeSwitcher();
 
     return (
-        <header className='w-full px-32 py-8 font-medium flex items-center justify-between'>
+        <header className='w-full px-32 py-8 font-medium flex items-center justify-between dark:text-light'>
             <nav className='flex gap-4'>
                 <CustomLink href="/" title={"Home"} className='' />
                 <CustomLink href="/about" title={"About"} className='' />
@@ -66,6 +66,8 @@ const Navbar = () => {
                 ><DribbbleIcon /></motion.a>
 
             <buttton
+                className={`cursor-pointer w-10 h-10 flex items-center justify-center ml-3 rounded-full p-1
+                ${mode==="light" ? "bg-dark text-light" : "bg-light text-dark"}`}
                 onClick={()=> setMode(mode === "light" ? "dark": "light")}
             >
                 {
