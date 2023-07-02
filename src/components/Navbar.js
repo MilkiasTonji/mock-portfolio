@@ -2,8 +2,9 @@ import Link from 'next/link'
 import React from 'react'
 import Logo from './Logo'
 import { useRouter } from 'next/router'
-import { TwitterIcon, LinkedInIcon, GithubIcon, PinterestIcon, DribbbleIcon } from './Icons'
+import { TwitterIcon, LinkedInIcon, GithubIcon, PinterestIcon, DribbbleIcon, SunIcon, MoonIcon } from './Icons'
 import { motion } from 'framer-motion'
+import useThemeSwitcher from './hooks/useThemeSwitcher'
 
 const CustomLink = ({ href, title, className = "" }) => {
     const router = useRouter();
@@ -22,6 +23,9 @@ const CustomLink = ({ href, title, className = "" }) => {
 
 
 const Navbar = () => {
+
+    const [mode, setMode] = useThemeSwitcher();
+
     return (
         <header className='w-full px-32 py-8 font-medium flex items-center justify-between'>
             <nav className='flex gap-4'>
@@ -61,6 +65,13 @@ const Navbar = () => {
                     className='w-6'
                 ><DribbbleIcon /></motion.a>
 
+            <buttton
+                onClick={()=> setMode(mode === "light" ? "dark": "light")}
+            >
+                {
+                    mode === "dark" ? <SunIcon className={"fill-dark"} /> : <MoonIcon className={"fill-light"} />
+                }
+            </buttton>
             </nav>
         </header>
     )
