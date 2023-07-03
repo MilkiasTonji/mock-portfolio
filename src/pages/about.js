@@ -50,8 +50,8 @@ const about = () => {
                     <AnimatedText text={"Passion Fuels Purpose!"} className='text-6xl mb-10' />
                     <div className='grid w-full grid-cols-8 gap-16'>
                         <div className='col-span-3 flex flex-col items-start justify-start'>
-                            <h2 className='mb-4 text-lg font-bold uppercase text-dark/75'>Biography</h2>
-                            <p className='font-medium'>
+                            <h2 className='mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light'>Biography</h2>
+                            <p className='font-medium dark:text-light'>
                                - Hi, I'm CodeBucks, a web developer and UI/UX designer with a passion for creating beautiful, functional,
                                 and user-centered digital experiences. With 4 years of experience in the field. I am always looking for
                                 new and innovative ways to bring my clients' visions to life.
