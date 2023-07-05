@@ -68,7 +68,7 @@ const Details = ({position, company, companyLink, time, address, work}) => {
             whileInView={{y:0}}
             transition={{duration:0.5, type:"spring"}}
         >
-            <h3 className='capitalize font-medium text-2xl'>{position} &nbsp; 
+            <h3 className='capitalize font-medium text-2xl dark:text-light'>{position} &nbsp; 
             <a href={companyLink} 
              target='_blank'
              className='text-primary capitalize'
@@ -95,7 +95,7 @@ const Experience = () => {
         <div className='w-[75%] mx-auto relative'>
             <motion.div
             style={{scaleY: scrollYProgress}}
-            ref={ref} className='absolute left-9 top-0 w-[4px] h-full bg-dark origin-top' />
+            ref={ref} className='absolute left-9 top-0 w-[4px] h-full bg-dark dark:bg-light origin-top' />
             <ul className='w-full flex flex-col items-start justify-between ml-4'>
                 {
                     myExperiences.map((exp, index)=> (
