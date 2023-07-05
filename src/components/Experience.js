@@ -74,7 +74,7 @@ const Details = ({position, company, companyLink, time, address, work}) => {
              className='text-primary capitalize'
             >@{company}</a></h3>
             <span className='capitalize font-medium text-dark/75 dark:text-light'>{time} | {address}</span>
-            <p className='font-medium w-full'>{work}</p>
+            <p className='font-medium w-full dark:text-light'>{work}</p>
         </motion.div>
     </li>
 }
