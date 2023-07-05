@@ -73,7 +73,7 @@ const Details = ({position, company, companyLink, time, address, work}) => {
              target='_blank'
              className='text-primary capitalize'
             >@{company}</a></h3>
-            <span className='capitalize font-medium text-dark/75'>{time} | {address}</span>
+            <span className='capitalize font-medium text-dark/75 dark:text-light'>{time} | {address}</span>
             <p className='font-medium w-full'>{work}</p>
         </motion.div>
     </li>
@@ -91,7 +91,7 @@ const Experience = () => {
 
   return (
     <div className='my-64'>
-        <h2 className='font-bold text-6xl mb-32 w-full text-center'>Experience</h2>
+        <h2 className='font-bold text-6xl mb-32 w-full text-center dark:text-light'>Experience</h2>
         <div className='w-[75%] mx-auto relative'>
             <motion.div
             style={{scaleY: scrollYProgress}}
