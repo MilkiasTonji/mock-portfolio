@@ -90,7 +90,7 @@ const Experience = () => {
     )
 
   return (
-    <div className='my-64'>
+    <div className='my-40'>
         <h2 className='font-bold text-6xl mb-32 w-full text-center dark:text-light'>Experience</h2>
         <div className='w-[75%] mx-auto relative'>
             <motion.div
