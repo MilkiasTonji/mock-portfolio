@@ -56,11 +56,11 @@ const about = () => {
                                 and user-centered digital experiences. With 4 years of experience in the field. I am always looking for
                                 new and innovative ways to bring my clients' visions to life.
                             </p>
-                            <p className='font-medium my-4'>
+                            <p className='font-medium my-4 dark:text-light'>
                                 - I believe that design is about more than just making things look pretty – it's about solving problems and
                                 creating intuitive, enjoyable experiences for users.
                             </p>
-                            <p className='font-medium'>
+                            <p className='font-medium dark:text-light'>
                                 - Whether I'm working on a website, mobile app, or
                                 other digital product, I bring my commitment to design excellence and user-centered thinking to
                                 every project I work on. I look forward to the opportunity to bring my skills and passion to your next project.
@@ -68,7 +68,7 @@ const about = () => {
                             </p>
                         </div>
                         <div className='col-span-3 relative h-max rounded-2xl border-2 border-solid border-dark bg-light p-8'>
-                            <div className='absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-[2rem] bg-dark' />
+                            <div className='absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-[2rem] bg-dark dark:bg-light' />
                             <Image src={profilePic} alt='MilkiasTonji' className='w-full h-auto rounded-2xl' />
                         </div>
                         <div className='col-span-2 flex flex-col items-end justify-between'>
