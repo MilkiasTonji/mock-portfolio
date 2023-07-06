@@ -64,11 +64,11 @@ const myProjects = [
 const FramerImage = motion(Image);
 
 const FeaturedProject = ({ type, title, summary, img, link, github, techStacks }) => {
-    return (<article className={`w-full flex items-center border border-solid border-dark bg-light relative rounded-br-2xl ${type === "Featured Project" ?
+    return (<article className={`w-full flex items-center border border-solid border-dark bg-light dark:bg-dark dark:border-light relative rounded-br-2xl ${type === "Featured Project" ?
         'justify-between rounded-3xl shadow-2xl p-10' : 'flex flex-col justify-center rounded-2xl p-6'
         }`}>
         
-        <div className={`absolute top-0 -right-3  bg-dark rounded-br-3xl -z-10 w-[101%] h-[103%]  ${type==="Featured Project" ? 'rounded-[2.5rem]' : 'rounded-[2rem]'}`} />
+        <div className={`absolute top-0 -right-3  bg-dark dark:bg-light rounded-br-3xl -z-10 w-[101%] h-[103%]  ${type==="Featured Project" ? 'rounded-[2.5rem]' : 'rounded-[2rem]'}`} />
 
         <Link href={link} target='_blank' 
             className={`${type === "Featured Project" ? 'w-1/2 cursor-pointer overflow-hidden rounded-lg'
@@ -80,27 +80,28 @@ const FeaturedProject = ({ type, title, summary, img, link, github, techStacks }
         </Link>
         <div className={`${type== 'Featured Project' ? 'w-1/2 flex flex-col items-start justify-between pl-6' 
         : 'w-full mt-4'}`}>
-            <span className='text-primary font-medium text-xl'>{type}</span>
+            <span className='text-primary font-medium text-xl dark:text-primaryDark'>{type}</span>
             <Link href={link} target='_blank' className='hover:underline underline-offset-2'>
-                <h2 className={`my-2 w-full text-left font-bold ${type==="Featured Project" ? 'text-4xl' : 'text-2xl'}`}>{title}</h2>
+                <h2 className={`my-2 w-full text-left font-bold dark:text-light ${type==="Featured Project" ? 'text-3xl' : 'text-2xl'}`}>{title}</h2>
             </Link>
             
-            <p className='my-2 font-medium text-dark'>{summary}</p>
+            <p className='my-2 font-medium text-dark dark:text-light'>{summary}</p>
             
             <div className='flex flex-col'>
                 <div className='flex flex-wrap items-center gap-4 '>
-                    <h3 className='mt-2 w-full text-left text-2xl font-bold'>Tech Stacks</h3>
+                    <h3 className='mt-2 w-full text-left text-2xl font-bold dark:text-light'>Tech Stacks</h3>
                     {
                         techStacks.map((tech, index) => (
                             <div key={`${index}-${tech}`} className='flex gap-4'>
-                                <span className='p-2 px-4 border-primary border-solid border-[1px] rounded-lg'>{tech}</span>
+                                <span className='p-2 px-4 border-primary dark:border-primaryDark dark:text-light border-solid border-[1px] rounded-lg'>{tech}</span>
                             </div>
                         ))
                     }
                 </div>
                 <div className='mt-2 flex items-start justify-end'>
-                    <Link href={github} target='_blank' className='w-10'><GithubIcon /></Link>
-                    <Link href={link} target='_blank' className='ml-4 rounded-lg bg-dark text-light p-2 px-6 text-lg font-semibold'>Visit Project</Link>
+                    <Link href={github} target='_blank' className='w-10'><GithubIcon className={'dark:text-light'} /></Link>
+                    <Link href={link} target='_blank' className='ml-4 rounded-lg bg-dark text-light
+                    dark:bg-light dark:text-dark p-2 px-6 text-lg font-semibold'>Visit Project</Link>
                 </div>
             </div>
         </div>

@@ -71,9 +71,9 @@ const Details = ({position, company, companyLink, time, address, work}) => {
             <h3 className='capitalize font-medium text-2xl dark:text-light'>{position} &nbsp; 
             <a href={companyLink} 
              target='_blank'
-             className='text-primary capitalize'
+             className='text-primary capitalize dark:text-primaryDark'
             >@{company}</a></h3>
-            <span className='capitalize font-medium text-dark/75 dark:text-light'>{time} | {address}</span>
+            <span className='capitalize font-medium text-dark/75 dark:text-light/75'>{time} | {address}</span>
             <p className='font-medium w-full dark:text-light'>{work}</p>
         </motion.div>
     </li>
