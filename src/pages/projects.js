@@ -64,11 +64,11 @@ const myProjects = [
 const FramerImage = motion(Image);
 
 const FeaturedProject = ({ type, title, summary, img, link, github, techStacks }) => {
-    return (<article className={`w-full flex items-center border border-solid border-dark bg-light dark:bg-dark dark:border-light relative rounded-br-2xl ${type === "Featured Project" ?
+    return (<article className={`w-full flex items-center  border border-solid border-dark bg-light dark:bg-dark dark:border-light relative rounded-br-2xl ${type === "Featured Project" ?
         'justify-between rounded-3xl shadow-2xl p-10' : 'flex flex-col justify-center rounded-2xl p-6'
         }`}>
         
-        <div className={`absolute top-0 -right-3  bg-dark dark:bg-light rounded-br-3xl -z-10 w-[101%] h-[103%]  ${type==="Featured Project" ? 'rounded-[2.5rem]' : 'rounded-[2rem]'}`} />
+        <div className={`absolute top-0 -right-2  bg-dark dark:bg-light rounded-br-3xl -z-10 w-[101%] h-[102%]  ${type==="Featured Project" ? 'rounded-[2.5rem]' : 'rounded-[2rem]'}`} />
 
         <Link href={link} target='_blank' 
             className={`${type === "Featured Project" ? 'w-1/2 cursor-pointer overflow-hidden rounded-lg'

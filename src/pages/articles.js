@@ -20,7 +20,7 @@ const FramerImage = motion(Image);
 const FeaturedArticle = ({ img, title, time, summary, link }) => {
     return (
         <li className='col-span-1 w-full p-4 bg-light dark:bg-dark border border-solid border-dark dark:border-light rounded-2xl relative'>
-            <div className={`absolute top-0 -right-3  bg-dark dark:bg-light rounded-br-3xl -z-10 w-[101%] h-[103%] rounded-2xl`} />
+            <div className={`absolute top-0 -right-2  bg-dark dark:bg-light rounded-br-3xl -z-10 w-[101%] h-[102%] rounded-2xl`} />
             <Link href={link} target='_blank'
                 className={`'w-full inline-block cursor-pointer overflow-hidden rounded-lg'`}>
                 <FramerImage src={img} alt={title} className='w-full h-auto'
