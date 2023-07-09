@@ -11,30 +11,30 @@ import Experience from '@/components/Experience'
 import Education from '@/components/Education'
 
 //animate numbers up to the value passed from component
-const AnimatedNumbers = ({value}) => {
-   
+const AnimatedNumbers = ({ value }) => {
+
     const ref = useRef(null);
 
     const motionValue = useMotionValue(0);
-    const springValue = useSpring(motionValue, {duration: 3000});
-    const isInview = useInView(ref, {once: true}) // run animation when an element is in view
+    const springValue = useSpring(motionValue, { duration: 3000 });
+    const isInview = useInView(ref, { once: true }) // run animation when an element is in view
 
 
-    useEffect(()=> {
-       if(isInview){
-        motionValue.set(value)
-       } 
-    },[isInview, value, motionValue]);
-
-    useEffect(()=> {
-      springValue.on("change", (latest)=> {
-        if(ref.current && latest.toFixed(0) <= value){
-            ref.current.textContent = latest.toFixed(0)
+    useEffect(() => {
+        if (isInview) {
+            motionValue.set(value)
         }
-      })
-     },[springValue, value])
+    }, [isInview, value, motionValue]);
 
-   return <span ref={ref}></span>
+    useEffect(() => {
+        springValue.on("change", (latest) => {
+            if (ref.current && latest.toFixed(0) <= value) {
+                ref.current.textContent = latest.toFixed(0)
+            }
+        })
+    }, [springValue, value])
+
+    return <span ref={ref}></span>
 }
 
 
@@ -52,7 +52,7 @@ const about = () => {
                         <div className='col-span-3 flex flex-col items-start justify-start'>
                             <h2 className='mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75'>Biography</h2>
                             <p className='font-medium dark:text-light'>
-                               - Hi, I'm CodeBucks, a web developer and UI/UX designer with a passion for creating beautiful, functional,
+                                - Hi, I'm CodeBucks, a web developer and UI/UX designer with a passion for creating beautiful, functional,
                                 and user-centered digital experiences. With 4 years of experience in the field. I am always looking for
                                 new and innovative ways to bring my clients' visions to life.
                             </p>
@@ -69,7 +69,10 @@ const about = () => {
                         </div>
                         <div className='col-span-3 relative h-max rounded-2xl border-2 border-solid border-dark bg-light p-8 dark:bg-dark dark:border-light'>
                             <div className='absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-[2rem] bg-dark dark:bg-light' />
-                            <Image src={profilePic} alt='MilkiasTonji' className='w-full h-auto rounded-2xl' />
+                            <Image src={profilePic} alt='MilkiasTonji' className='w-full h-auto rounded-2xl'
+                                priority={true}
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            />
                         </div>
                         <div className='col-span-2 flex flex-col items-end justify-between'>
                             <div className='flex flex-col items-end justify-center'>
@@ -79,12 +82,12 @@ const about = () => {
                             </div>
                             <div className='flex flex-col items-end justify-center'>
                                 <span className='inline-block text-7xl font-bold dark:text-light'>
-                                <AnimatedNumbers value={40} />+</span>
+                                    <AnimatedNumbers value={40} />+</span>
                                 <h2 className='text-xl font-medium capitalize text-dark/75 dark:text-light'>projects completed</h2>
                             </div>
                             <div className='flex flex-col items-end justify-center'>
                                 <span className='inline-block text-7xl font-bold dark:text-light'>
-                                <AnimatedNumbers value={4} />+</span>
+                                    <AnimatedNumbers value={4} />+</span>
                                 <h2 className='text-xl font-medium capitalize text-dark/75 dark:text-light'>Years of experience</h2>
                             </div>
                         </div>
