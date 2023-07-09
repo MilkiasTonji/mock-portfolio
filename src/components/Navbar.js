@@ -28,6 +28,11 @@ const Navbar = () => {
 
     return (
         <header className='w-full px-32 py-8 font-medium flex items-center justify-between dark:text-light'>
+            <button className='flex flex-col justify-center items-center'>
+                <span className='bg-dark dark:bg-light block h-1 rounded-sm -translate-y-0.5'></span>
+                <span className='bg-dark dark:bg-light block h-1 rounded-sm'></span>
+                <span className='bg-dark dark:bg-light block h-1 rounded-sm translate-y-0.5'></span>
+            </button>
             <nav className='flex gap-4'>
                 <CustomLink href="/" title={"Home"} className='' />
                 <CustomLink href="/about" title={"About"} className='' />
