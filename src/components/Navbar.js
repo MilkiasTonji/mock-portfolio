@@ -88,10 +88,9 @@ const Navbar = () => {
             </div>
 
             {/* mobile menu here..... */}
-
             <div className='min-w-[70vw] flex flex-col justify-between items-center z-30 
             fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-dark/90 dark:bg-light/75 rounded-lg backdrop-blur-md py-32'>
-                <nav className='flex gap-4'>
+                <nav className='flex flex-col items-center justify-center gap-4'>
                     <CustomLink href="/" title={"Home"} className='' />
                     <CustomLink href="/about" title={"About"} className='' />
                     <CustomLink href="/projects" title={"Projects"} className='' />
