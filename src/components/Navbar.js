@@ -31,12 +31,12 @@ const CustomMobileLink = ({ href, title, className = "", toggle }) => {
     return (
         <button
             href={href}
-            className={`${className} relative group ${router.asPath === href ? 'font-bold' : ''}`}
+            className={`${className} relative group text-light dark:text-dark my-2`}
             onClick={handleMobileLink}
         >
             {title}
             <span className={`
-                h-[3px] inline-block bg-blue-500 absolute left-0 dark:bg-light
+                h-[3px] inline-block absolute left-0 bg-light dark:bg-dark
                 -bottom-0.5 rounded-md group-hover:w-full transition-[width] ease-in duration-300
                 ${router.asPath === href ? 'w-full font-bold' : 'w-0'}
             `}>
@@ -115,16 +115,19 @@ const Navbar = () => {
             {
                 isOpen ?
 
-                    <div className='min-w-[70vw] flex flex-col justify-between items-center z-30 
-            fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-dark/90 dark:bg-light/75 rounded-lg backdrop-blur-md py-32'>
-                        <nav className='flex flex-col items-center justify-center gap-4'>
+                    <motion.div 
+                     initial={{scale: 0, opacity: 0, x: "-50%", y: "-50%"}}
+                     animate={{scale:1, opacity: 1, transition: {duration: 0.5}}}
+                    className='min-w-[70vw] flex flex-col justify-between items-center z-30 
+                    fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-dark/90 dark:bg-light/75 rounded-lg backdrop-blur-md py-32'>
+                        <nav className='flex flex-col items-center justify-center'>
                             <CustomMobileLink href="/" title={"Home"} className='' toggle={handleClick} />
                             <CustomMobileLink href="/about" title={"About"} className='' toggle={handleClick} />
                             <CustomMobileLink href="/projects" title={"Projects"} className='' toggle={handleClick} />
                             <CustomMobileLink href="/articles" title={"Articles"} className='' toggle={handleClick} />
                         </nav>
 
-                        <nav className='flex items-center justify-center flex-wrap gap-4'>
+                        <nav className='flex items-center justify-center flex-wrap gap-4 mt-2 sm:gap-1'>
                             <motion.a href="https://www.twitter.com/MilkiasTonji" target={'_blank'}
                                 whileHover={{ y: -2 }}
                                 whileTap={{ scale: 0.9 }}
@@ -138,12 +141,12 @@ const Navbar = () => {
                             <motion.a href="https://www.linkedin.com/MilkiasTonji" target={'_blank'}
                                 whileHover={{ y: -2 }}
                                 whileTap={{ scale: 0.9 }}
-                                className='w-6'
+                                className='w-6 bg-light rounded-full dark:bg-dark'
                             ><GithubIcon /></motion.a>
                             <motion.a href="https://www.linkedin.com/MilkiasTonji" target={'_blank'}
                                 whileHover={{ y: -2 }}
                                 whileTap={{ scale: 0.9 }}
-                                className='w-6'
+                                className='w-6 bg-light rounded-full'
                             ><PinterestIcon /></motion.a>
                             <motion.a href="https://www.linkedin.com/MilkiasTonji" target={'_blank'}
                                 whileHover={{ y: -2 }}
@@ -161,7 +164,7 @@ const Navbar = () => {
                                 }
                             </buttton>
                         </nav>
-                    </div>
+                    </motion.div>
                     : null
             }
 
