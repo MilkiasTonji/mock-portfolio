@@ -21,6 +21,30 @@ const CustomLink = ({ href, title, className = "" }) => {
     )
 }
 
+const CustomMobileLink = ({ href, title, className = "", toggle }) => {
+    const router = useRouter();
+
+    const handleMobileLink = () => {
+        toggle()
+        router.push(href)
+    }
+    return (
+        <button
+            href={href}
+            className={`${className} relative group ${router.asPath === href ? 'font-bold' : ''}`}
+            onClick={handleMobileLink}
+        >
+            {title}
+            <span className={`
+                h-[3px] inline-block bg-blue-500 absolute left-0 dark:bg-light
+                -bottom-0.5 rounded-md group-hover:w-full transition-[width] ease-in duration-300
+                ${router.asPath === href ? 'w-full font-bold' : 'w-0'}
+            `}>
+                &nbsp;</span>
+        </button>
+    )
+}
+
 
 const Navbar = () => {
 
@@ -88,53 +112,58 @@ const Navbar = () => {
             </div>
 
             {/* mobile menu here..... */}
-            <div className='min-w-[70vw] flex flex-col justify-between items-center z-30 
+            {
+                isOpen ?
+
+                    <div className='min-w-[70vw] flex flex-col justify-between items-center z-30 
             fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-dark/90 dark:bg-light/75 rounded-lg backdrop-blur-md py-32'>
-                <nav className='flex flex-col items-center justify-center gap-4'>
-                    <CustomLink href="/" title={"Home"} className='' />
-                    <CustomLink href="/about" title={"About"} className='' />
-                    <CustomLink href="/projects" title={"Projects"} className='' />
-                    <CustomLink href="/articles" title={"Articles"} className='' />
-                </nav>
+                        <nav className='flex flex-col items-center justify-center gap-4'>
+                            <CustomMobileLink href="/" title={"Home"} className='' toggle={handleClick} />
+                            <CustomMobileLink href="/about" title={"About"} className='' toggle={handleClick} />
+                            <CustomMobileLink href="/projects" title={"Projects"} className='' toggle={handleClick} />
+                            <CustomMobileLink href="/articles" title={"Articles"} className='' toggle={handleClick} />
+                        </nav>
 
-                <nav className='flex items-center justify-center flex-wrap gap-4'>
-                    <motion.a href="https://www.twitter.com/MilkiasTonji" target={'_blank'}
-                        whileHover={{ y: -2 }}
-                        whileTap={{ scale: 0.9 }}
-                        className='w-6'
-                    ><TwitterIcon /></motion.a>
-                    <motion.a href="https://www.linkedin.com/MilkiasTonji" target={'_blank'}
-                        whileHover={{ y: -2 }}
-                        whileTap={{ scale: 0.9 }}
-                        className='w-6'
-                    ><LinkedInIcon /></motion.a>
-                    <motion.a href="https://www.linkedin.com/MilkiasTonji" target={'_blank'}
-                        whileHover={{ y: -2 }}
-                        whileTap={{ scale: 0.9 }}
-                        className='w-6'
-                    ><GithubIcon /></motion.a>
-                    <motion.a href="https://www.linkedin.com/MilkiasTonji" target={'_blank'}
-                        whileHover={{ y: -2 }}
-                        whileTap={{ scale: 0.9 }}
-                        className='w-6'
-                    ><PinterestIcon /></motion.a>
-                    <motion.a href="https://www.linkedin.com/MilkiasTonji" target={'_blank'}
-                        whileHover={{ y: -2 }}
-                        whileTap={{ scale: 0.9 }}
-                        className='w-6'
-                    ><DribbbleIcon /></motion.a>
+                        <nav className='flex items-center justify-center flex-wrap gap-4'>
+                            <motion.a href="https://www.twitter.com/MilkiasTonji" target={'_blank'}
+                                whileHover={{ y: -2 }}
+                                whileTap={{ scale: 0.9 }}
+                                className='w-6'
+                            ><TwitterIcon /></motion.a>
+                            <motion.a href="https://www.linkedin.com/MilkiasTonji" target={'_blank'}
+                                whileHover={{ y: -2 }}
+                                whileTap={{ scale: 0.9 }}
+                                className='w-6'
+                            ><LinkedInIcon /></motion.a>
+                            <motion.a href="https://www.linkedin.com/MilkiasTonji" target={'_blank'}
+                                whileHover={{ y: -2 }}
+                                whileTap={{ scale: 0.9 }}
+                                className='w-6'
+                            ><GithubIcon /></motion.a>
+                            <motion.a href="https://www.linkedin.com/MilkiasTonji" target={'_blank'}
+                                whileHover={{ y: -2 }}
+                                whileTap={{ scale: 0.9 }}
+                                className='w-6'
+                            ><PinterestIcon /></motion.a>
+                            <motion.a href="https://www.linkedin.com/MilkiasTonji" target={'_blank'}
+                                whileHover={{ y: -2 }}
+                                whileTap={{ scale: 0.9 }}
+                                className='w-6'
+                            ><DribbbleIcon /></motion.a>
 
-                    <buttton
-                        className={`cursor-pointer w-10 h-10 flex items-center justify-center ml-3 rounded-full p-1
+                            <buttton
+                                className={`cursor-pointer w-10 h-10 flex items-center justify-center ml-3 rounded-full p-1
                 ${mode === "light" ? "bg-dark text-light" : "bg-light text-dark"}`}
-                        onClick={() => setMode(mode === "light" ? "dark" : "light")}
-                    >
-                        {
-                            mode === "dark" ? <SunIcon className={"fill-dark"} /> : <MoonIcon className={"fill-light"} />
-                        }
-                    </buttton>
-                </nav>
-            </div>
+                                onClick={() => setMode(mode === "light" ? "dark" : "light")}
+                            >
+                                {
+                                    mode === "dark" ? <SunIcon className={"fill-dark"} /> : <MoonIcon className={"fill-light"} />
+                                }
+                            </buttton>
+                        </nav>
+                    </div>
+                    : null
+            }
 
             {/* bring logo component here */}
             <div className='absolute left-[50%] top-2 translate-x-[-50%]'>
