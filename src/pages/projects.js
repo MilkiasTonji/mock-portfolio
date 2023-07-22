@@ -8,6 +8,7 @@ import React from 'react'
 
 import projectImage1 from '../../public/images/projects/crypto-screener-cover-image.jpg';
 import { motion } from 'framer-motion'
+import TransitionEffect from '@/components/TransitionEffect'
 
 
 const myProjects = [
@@ -120,6 +121,7 @@ const projects = () => {
                 <title> Milkias Tonji | Projects </title>
                 <meta name='description' content='any description' />
             </Head>
+            <TransitionEffect />
             <main className='w-full mb-16 flex flex-col items-center justify-center'>
                 <Layout className='pt-16'>
                     <AnimatedText text={"Imagination Trumps Knowledge!"} className='text-4xl mb-16 lg:!text-6xl sm:!text-5xl xs:!text-4xl sm:mb-8' />
