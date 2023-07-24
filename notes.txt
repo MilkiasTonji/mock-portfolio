@@ -1,7 +1,4 @@
 Tutorial that I am following along
  https://www.youtube.com/watch?v=Yw7yWHigGKI
  
- start from 4:51:14
-
- https://www.youtube.com/watch?v=Yw7yWHigGKI&t=9190s
- this is the text changed just to push to github
+Build a full-portifolio by following allong this Tutorial
